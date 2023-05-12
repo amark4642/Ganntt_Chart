@@ -342,25 +342,13 @@ function GanntttChart() {
     setProjectDuration(parseInt(Difference_In_Days));
   }, [data, endDate]);
 
-  //   useEffect(() => {
-  //     axios
-  //       .get(`http://localhost:8000/get-abbott-data`)
-  //       .then((res) => {
-  //         console.log(res.data);
-  //         arr = res.data;
-  //         setData(res.data);
-  //       })
-  //       .catch((e) => console.log(e));
-  //   }, []);
-
   useEffect(() => {
     console.log(
       "class-width",
       document.getElementsByClassName("items-list")?.length
     );
     setNoOfInt(document.getElementsByClassName("items-list")?.length);
-    calNoOfMonths(apiData?.data[0]?.startDate, apiData?.data[0]?.endDate);
-    console.log();
+    // calNoOfMonths(apiData?.data[0]?.startDate, apiData?.data[0]?.endDate);
     data?.length && projectDuration && timelineWidth();
   }, [data, projectDuration]);
 
@@ -414,28 +402,28 @@ function GanntttChart() {
     return max[1][0].endDate;
   };
 
-  const calRisk = (catData) => {
-    console.log("category", catData);
-    let temp = catData.filter((e) => e?.Correct_Incorrect === "Incorrect");
-    console.log(temp);
-    if (temp?.length) {
-      return "red";
-    }
-    return;
-  };
+  // const calRisk = (catData) => {
+  //   console.log("category", catData);
+  //   let temp = catData.filter((e) => e?.Correct_Incorrect === "Incorrect");
+  //   console.log(temp);
+  //   if (temp?.length) {
+  //     return "red";
+  //   }
+  //   return;
+  // };
 
-  const filter = (e) => {
-    let val = e.target.value;
+  // const filter = (e) => {
+  //   let val = e.target.value;
 
-    if (val == "") {
-      setData(arr);
-      return;
-    }
+  //   if (val == "") {
+  //     setData(arr);
+  //     return;
+  //   }
 
-    setData(
-      arr.filter((e) => e.Country?.toLowerCase()?.includes(val?.toLowerCase()))
-    );
-  };
+  //   setData(
+  //     arr.filter((e) => e.Country?.toLowerCase()?.includes(val?.toLowerCase()))
+  //   );
+  // };
 
   const timelineWidth = () => {
     // const groupedArray = groupArray(data, "category_name");
